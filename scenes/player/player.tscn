@@ -199,9 +199,9 @@ shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8afob")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
+frame_progress = 0.460309
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gmlin")

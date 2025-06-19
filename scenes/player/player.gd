@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var state_machine: Node = $StateMachine
 
 func _ready() -> void:
-	state_machine.init()
+	state_machine.init(self)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

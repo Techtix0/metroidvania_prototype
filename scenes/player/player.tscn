@@ -159,7 +159,7 @@ shape = SubResource("RectangleShape2D_x7p2l")
 sprite_frames = SubResource("SpriteFrames_8afob")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.237847
+frame_progress = 0.00224215
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gmlin")

@@ -128,7 +128,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,9 +157,9 @@ shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8afob")
-animation = &"run"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.151481
+frame_progress = 0.237847
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gmlin")

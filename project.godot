@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="metroidvania"
-run/main_scene="uid://c55gdvrxv5lcb"
+run/main_scene="uid://dv6c6lf7thfnn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=256
-window/size/viewport_height=240
+window/size/viewport_width=1000
+window/size/viewport_height=562
 window/stretch/mode="viewport"
 
 [editor_plugins]

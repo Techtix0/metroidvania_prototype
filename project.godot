@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="uid://c55gdvrxv5lcb"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=240
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

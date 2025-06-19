@@ -6,9 +6,9 @@ extends State
 @export var jump_force: float = 300.0
 
 func enter() -> void:
-	super()
 	animation_name = "jump"
 	parent.velocity.y = -jump_force
+	super()
 
 func process_input(event: InputEvent) -> State:
 	return null

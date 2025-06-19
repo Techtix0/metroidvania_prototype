@@ -5,8 +5,8 @@ extends State
 @export var fall_state: State
 
 func enter() -> void:
-	super()
 	animation_name = "run"
+	super()
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():

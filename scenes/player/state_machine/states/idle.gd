@@ -3,17 +3,20 @@ extends State
 @export var move_state: State
 @export var jump_state: State
 @export var fall_state: State
+@export var attack_state: State
 
 func enter() -> void:
-	super()
 	animation_name = "idle"
 	parent.velocity.x = 0
+	super()
 
 func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		return move_state
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
 		return jump_state
+	if Input.is_action_just_pressed("attack"):
+		return attack_state
 	return null
 	
 func process_frame(delta: float) -> State:

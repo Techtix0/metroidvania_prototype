@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://c55gdvrxv5lcb"]
+[gd_scene load_steps=35 format=3 uid="uid://c55gdvrxv5lcb"]
 
 [ext_resource type="Texture2D" uid="uid://xbuwpwr62hpd" path="res://assets/crow-animations/crow_idle.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dket2y7x7nyon" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://dvto65lter2mf" path="res://assets/crow-animations/crow_attack.png" id="2_h17s1"]
 [ext_resource type="Texture2D" uid="uid://bcyhjlo8iswen" path="res://assets/crow-animations/crow_jump.png" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://rai8723cs61m" path="res://scenes/player/state_machine/state_machine.gd" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://bo1u6oilcbe4q" path="res://assets/crow-animations/crow_walk.png" id="3_qek5x"]
@@ -9,9 +10,30 @@
 [ext_resource type="Script" uid="uid://dyg6jrljs3iwa" path="res://scenes/player/state_machine/states/move.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://cv8pqgjpdwl6s" path="res://scenes/player/state_machine/states/jump.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://bbjmwy2kbuk07" path="res://scenes/player/state_machine/states/fall.gd" id="7_0owmy"]
+[ext_resource type="Script" uid="uid://bn768h5hb6vdg" path="res://scenes/player/state_machine/states/attack.gd" id="11_je7p5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(15, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioxgp"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnsyf"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_007i1"]
+atlas = ExtResource("2_h17s1")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
 atlas = ExtResource("3_5gtgg")
@@ -79,6 +101,26 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8afob"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioxgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnsyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_007i1")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lgqa7")
@@ -157,19 +199,20 @@ shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8afob")
-animation = &"jump"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.00224215
+frame = 1
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gmlin")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "jump_state", "fall_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "jump_state", "fall_state", "attack_state")]
 script = ExtResource("4_lvxji")
 move_state = NodePath("../Move")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+attack_state = NodePath("../Attack")
 
 [node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
 script = ExtResource("5_p47bc")
@@ -186,3 +229,9 @@ move_state = NodePath("../Move")
 script = ExtResource("7_0owmy")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("11_je7p5")
+idle_state = NodePath("../Idle")
+
+[connection signal="animation_finished" from="Animations" to="StateMachine/Attack" method="_on_animations_animation_finished"]

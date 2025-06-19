@@ -11,11 +11,11 @@ func enter() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	if move_component.get_movement_direction() != 0: 
 		return move_state
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
+	if move_component.wants_jump() and parent.is_on_floor():
 		return jump_state
-	if Input.is_action_just_pressed("attack"):
+	if move_component.wants_attack():
 		return attack_state
 	return null
 	

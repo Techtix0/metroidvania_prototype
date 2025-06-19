@@ -10,3 +10,6 @@ func get_movement_direction() -> float:
 # This function does not decide if the entity actually can jump.
 func wants_jump() -> bool:
 	return Input.is_action_just_pressed("jump")
+
+func wants_attack() -> bool:
+	return Input.is_action_just_pressed("attack")

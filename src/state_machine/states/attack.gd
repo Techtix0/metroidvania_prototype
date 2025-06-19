@@ -4,9 +4,11 @@ extends State
 var is_animation_done: bool
 
 func enter() -> void:
+	is_animation_done = false
 	animation_name = "attack"
-	is_animation_done = true
 	super()
+	await animations.animation_finished
+	is_animation_done = true
 
 func exit() -> void:
 	pass
@@ -18,9 +20,6 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	if !is_animation_done:
+	if is_animation_done:
 		return idle_state
 	return null
-
-func _on_animations_animation_finished() -> void:
-	is_animation_done = false

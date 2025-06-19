@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://dv6c6lf7thfnn"]
 
 [ext_resource type="Texture2D" uid="uid://cxcn8kr65otcg" path="res://assets/village-props/TX Tileset Ground.png" id="1_m802k"]
-[ext_resource type="PackedScene" uid="uid://c55gdvrxv5lcb" path="res://scenes/player/player.tscn" id="2_i2aat"]
+[ext_resource type="PackedScene" uid="uid://c55gdvrxv5lcb" path="res://src/scenes/player/player.tscn" id="2_i2aat"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2aat"]
 texture = ExtResource("1_m802k")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c55gdvrxv5lcb"]
+[gd_scene load_steps=36 format=3 uid="uid://c55gdvrxv5lcb"]
 
 [ext_resource type="Texture2D" uid="uid://xbuwpwr62hpd" path="res://assets/crow-animations/crow_idle.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dket2y7x7nyon" path="res://src/scenes/player/player.gd" id="1_dovo2"]
@@ -11,9 +11,11 @@
 [ext_resource type="Script" uid="uid://cv8pqgjpdwl6s" path="res://src/state_machine/states/jump.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://bbjmwy2kbuk07" path="res://src/state_machine/states/fall.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bn768h5hb6vdg" path="res://src/state_machine/states/attack.gd" id="11_je7p5"]
+[ext_resource type="Script" uid="uid://be0vs8w43kt7s" path="res://src/scenes/player/player_move_component.gd" id="12_l84wi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
-size = Vector2(15, 28)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l84wi"]
+radius = 6.5
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
 atlas = ExtResource("2_h17s1")
@@ -195,7 +197,7 @@ script = ExtResource("1_dovo2")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2)
-shape = SubResource("RectangleShape2D_x7p2l")
+shape = SubResource("CapsuleShape2D_l84wi")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8afob")
@@ -233,5 +235,8 @@ move_state = NodePath("../Move")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("11_je7p5")
 idle_state = NodePath("../Idle")
+
+[node name="MoveComponent" type="Node" parent="."]
+script = ExtResource("12_l84wi")
 
 [connection signal="animation_finished" from="Animations" to="StateMachine/Attack" method="_on_animations_animation_finished"]

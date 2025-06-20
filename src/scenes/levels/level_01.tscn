@@ -1351,6 +1351,8 @@ move_speed = 100.0
 unique_name_in_owner = true
 position = Vector2(432, 184)
 
-[node name="Door" parent="." instance=ExtResource("5_yfpvf")]
+[node name="DoorLevel02" parent="." instance=ExtResource("5_yfpvf")]
+unique_name_in_owner = true
 position = Vector2(744, 251)
+scale = Vector2(-1, 1)
 next_scene = "Level02"

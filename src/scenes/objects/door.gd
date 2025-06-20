@@ -1,10 +1,15 @@
 extends StaticBody2D
 
 @export var next_scene: String
+var portal_spawn: Vector2 
 
+func _ready() -> void:
+	portal_spawn = %PlayerSpawn.global_position
+	PlayerManager.player_position = portal_spawn
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		print(portal_spawn)
 		var player: Player = body
 		player.queue_free()
 		

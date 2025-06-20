@@ -28,4 +28,8 @@ position = Vector2(5.5, 38.5)
 shape = SubResource("RectangleShape2D_43r5e")
 debug_color = Color(0.821481, 0.391936, 0.240169, 0.42)
 
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 24)
+
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

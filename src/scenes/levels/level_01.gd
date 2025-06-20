@@ -2,8 +2,11 @@ extends Node2D
 
 @onready var sword_upgrade_spawn: Marker2D = %SwordUpgradeSpawn
 @onready var sword_upgrade_preload := preload("res://src/scenes/objects/upgrades/item_upgrade.tscn")
+@onready var player: Player = $Player
 
 func _ready() -> void:
+	player.global_position = PlayerManager.player_position
+	
 	if !PlayerManager.inventory["Sword"]:
 		# Getting the sword texture
 		var sword_texture = AtlasTexture.new()

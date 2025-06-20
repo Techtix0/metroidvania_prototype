@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbgbxmoiikcj7"]
+[gd_scene load_steps=6 format=3 uid="uid://dbgbxmoiikcj7"]
 
 [ext_resource type="Texture2D" uid="uid://bk4jf3gsf7oqe" path="res://assets/village-props/TX Village Props.png" id="1_43r5e"]
 [ext_resource type="Script" uid="uid://cmkd12h5fh4yf" path="res://src/scenes/objects/door.gd" id="1_vebe3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nywnr"]
+atlas = ExtResource("1_43r5e")
+region = Rect2(32, 165, 85, 58)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vebe3"]
 atlas = ExtResource("1_43r5e")
-region = Rect2(32, 165, 87, 91)
+region = Rect2(32, 223, 87, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43r5e"]
 size = Vector2(43, 9)
@@ -13,7 +17,14 @@ size = Vector2(43, 9)
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_vebe3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="WellTop" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-1, -16)
+texture = SubResource("AtlasTexture_nywnr")
+
+[node name="WellBottom" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, 29)
 texture = SubResource("AtlasTexture_vebe3")
 
 [node name="WellCollider" type="CollisionPolygon2D" parent="."]

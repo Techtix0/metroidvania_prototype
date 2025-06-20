@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c55gdvrxv5lcb"]
+[gd_scene load_steps=33 format=3 uid="uid://c55gdvrxv5lcb"]
 
 [ext_resource type="Texture2D" uid="uid://xbuwpwr62hpd" path="res://assets/crow-animations/crow_idle.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dket2y7x7nyon" path="res://src/scenes/player/player.gd" id="1_dovo2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bcyhjlo8iswen" path="res://assets/crow-animations/crow_jump.png" id="3_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://bo1u6oilcbe4q" path="res://assets/crow-animations/crow_walk.png" id="3_qek5x"]
 [ext_resource type="PackedScene" uid="uid://bf0yad4bpvcdj" path="res://src/state_machine/state_machine.tscn" id="6_6ap8y"]
+[ext_resource type="PackedScene" uid="uid://b1typvc4j600g" path="res://src/scenes/hud/hud.tscn" id="9_mc3vd"]
 [ext_resource type="Script" uid="uid://bn768h5hb6vdg" path="res://src/state_machine/states/attack.gd" id="11_je7p5"]
 [ext_resource type="Script" uid="uid://be0vs8w43kt7s" path="res://src/scenes/player/player_move_component.gd" id="12_l84wi"]
 
@@ -213,5 +214,7 @@ idle_state = NodePath("../Idle")
 
 [node name="MoveComponent" type="Node" parent="."]
 script = ExtResource("12_l84wi")
+
+[node name="HUD" parent="." instance=ExtResource("9_mc3vd")]
 
 [editable path="StateMachine"]

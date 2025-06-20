@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dv6c6lf7thfnn"]
+[gd_scene load_steps=9 format=4 uid="uid://dv6c6lf7thfnn"]
 
 [ext_resource type="Texture2D" uid="uid://cxcn8kr65otcg" path="res://assets/village-props/TX Tileset Ground.png" id="1_m802k"]
 [ext_resource type="PackedScene" uid="uid://c55gdvrxv5lcb" path="res://src/scenes/player/player.tscn" id="2_i2aat"]
 [ext_resource type="PackedScene" uid="uid://b8h8rditm35eh" path="res://src/scenes/enemies/enemy01.tscn" id="3_krl7c"]
+[ext_resource type="PackedScene" uid="uid://bsj6hlrshcs75" path="res://src/scenes/upgrades/item_upgrade.tscn" id="4_j0a6s"]
+[ext_resource type="Texture2D" uid="uid://trfaioo5txq8" path="res://assets/village-props/TX Chest Animation.png" id="5_yfpvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2aat"]
 texture = ExtResource("1_m802k")
@@ -1329,6 +1331,10 @@ texture = ExtResource("1_m802k")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_i2aat")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ihjg"]
+atlas = ExtResource("5_yfpvf")
+region = Rect2(31, 35, 34, 29)
+
 [node name="Level01" type="Node2D"]
 
 [node name="Terrain" type="TileMapLayer" parent="."]
@@ -1344,3 +1350,9 @@ move_speed = 180.0
 position = Vector2(656, 328)
 move_direction = -1.0
 move_speed = 100.0
+
+[node name="ItemUpgrade" parent="." instance=ExtResource("4_j0a6s")]
+position = Vector2(592, 202)
+item_name = "Sword"
+item_texture = SubResource("AtlasTexture_3ihjg")
+get_amount = 1

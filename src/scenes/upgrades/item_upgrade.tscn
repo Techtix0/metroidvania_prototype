@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://5wlt8kepid0g" path="res://src/scenes/upgrades/item_upgrade.gd" id="1_enas6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy1w2"]
-size = Vector2(10, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enas6"]
+size = Vector2(32, 28)
 
 [node name="ItemUpgrade" type="Area2D"]
 script = ExtResource("1_enas6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_gy1w2")
+shape = SubResource("RectangleShape2D_enas6")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
-rotation = 4.71239
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

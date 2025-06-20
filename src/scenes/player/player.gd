@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var move_speed: float
 
 func _ready() -> void:
+	add_to_group("Player")
 	state_machine.init(self, animations, move_component, move_speed)
 
 func _unhandled_input(event: InputEvent) -> void:

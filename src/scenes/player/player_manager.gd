@@ -5,6 +5,7 @@ signal obtain_sword
 var inventory: Dictionary = {"Sword" : false}
 var player_position: Vector2
 var move_speed: float = 180.0
+var came_through_door: bool = false
 
 func _ready() -> void:
 	player_position = Vector2(32, 280)

@@ -5,7 +5,11 @@ extends Node2D
 @onready var player: Player = $Player
 
 func _ready() -> void:
-	player.global_position = PlayerManager.player_position
+	if PlayerManager.came_through_door:
+		player.global_position = PlayerManager.player_position
+		PlayerManager.came_through_door = false
+	else:
+		player.global_position = Vector2(32, 280)
 	
 	if !PlayerManager.inventory["Sword"]:
 		# Getting the sword texture
@@ -21,3 +25,7 @@ func _ready() -> void:
 		sword_upgrade.global_position = sword_upgrade_spawn.global_position
 		add_child(sword_upgrade)	
 	
+
+
+func _on_door_level_02_door_used() -> void:
+	PlayerManager.came_through_door = true

@@ -1344,3 +1344,5 @@ position = Vector2(432, 32)
 unique_name_in_owner = true
 position = Vector2(56, 291)
 next_scene = "Level01"
+
+[connection signal="door_used" from="DoorLevel01" to="." method="_on_door_level_01_door_used"]

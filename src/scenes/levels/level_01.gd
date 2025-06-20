@@ -24,8 +24,6 @@ func _ready() -> void:
 		sword_upgrade.sprite_rotation = 3 * PI/2 # This is in radians
 		sword_upgrade.global_position = sword_upgrade_spawn.global_position
 		add_child(sword_upgrade)	
-	
-
 
 func _on_door_level_02_door_used() -> void:
 	PlayerManager.came_through_door = true

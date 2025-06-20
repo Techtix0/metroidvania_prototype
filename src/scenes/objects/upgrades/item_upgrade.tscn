@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsj6hlrshcs75"]
 
-[ext_resource type="Script" uid="uid://5wlt8kepid0g" path="res://src/scenes/upgrades/item_upgrade.gd" id="1_enas6"]
+[ext_resource type="Script" uid="uid://5wlt8kepid0g" path="res://src/scenes/objects/upgrades/item_upgrade.gd" id="1_enas6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enas6"]
 size = Vector2(32, 28)

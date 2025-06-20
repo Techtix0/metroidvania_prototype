@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbgbxmoiikcj7"]
+
+[ext_resource type="Texture2D" uid="uid://bk4jf3gsf7oqe" path="res://assets/village-props/TX Village Props.png" id="1_43r5e"]
+[ext_resource type="Script" uid="uid://cmkd12h5fh4yf" path="res://src/scenes/objects/door.gd" id="1_vebe3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vebe3"]
+atlas = ExtResource("1_43r5e")
+region = Rect2(32, 165, 87, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43r5e"]
+size = Vector2(43, 9)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_vebe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_vebe3")
+
+[node name="WellCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 45, -32, 39, -22, 39, -22, 13, -16, 13, -16, 43, 27, 43, 27, 13, 33, 13, 33, 39, 43, 39, 43, 45)
+
+[node name="ExitArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(5.5, 38.5)
+shape = SubResource("RectangleShape2D_43r5e")
+debug_color = Color(0.821481, 0.391936, 0.240169, 0.42)
+
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

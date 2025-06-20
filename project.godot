@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerManager="*res://src/scenes/player/player_manager.gd"
+SceneManager="*res://src/managers/scene_manager.gd"
+GameManager="*res://src/managers/game_manager.gd"
 
 [display]
 
@@ -33,8 +35,10 @@ enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
 
 folder_colors={
 "res://addons/": "gray",
-"res://assets/": "yellow",
-"res://src/": "red",
+"res://assets/": "green",
+"res://src/": "teal",
+"res://src/managers/": "blue",
+"res://src/scenes/": "purple",
 "res://src/scenes/player/": "red",
 "res://src/state_machine/": "pink"
 }
@@ -71,6 +75,7 @@ toggle_menu={
 [layer_names]
 
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Doors"
 
 [rendering]
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var sword_upgrade_spawn: Marker2D = %SwordUpgradeSpawn
-@onready var sword_upgrade_preload := preload("res://src/scenes/upgrades/item_upgrade.tscn")
+@onready var sword_upgrade_preload := preload("res://src/scenes/objects/upgrades/item_upgrade.tscn")
 
 func _ready() -> void:
 	if !PlayerManager.inventory["Sword"]:

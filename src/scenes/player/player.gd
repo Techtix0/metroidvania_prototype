@@ -6,13 +6,11 @@ extends CharacterBody2D
 @onready var move_component: Node = $MoveComponent
 @onready var get_menu := preload("res://src/scenes/hud/pause_menu/menu_overlay.tscn")
 
-@export var move_speed: float
-
 var menu_opened: bool = false
 
 func _ready() -> void:
 	add_to_group("Player")
-	state_machine.init(self, animations, move_component, move_speed)
+	state_machine.init(self, animations, move_component, PlayerManager.move_speed)
 
 
 func _unhandled_input(event: InputEvent) -> void:

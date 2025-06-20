@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsj6hlrshcs75"]
+
+[ext_resource type="Script" uid="uid://5wlt8kepid0g" path="res://src/scenes/upgrades/item_upgrade.gd" id="1_enas6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy1w2"]
+size = Vector2(10, 36)
+
+[node name="ItemUpgrade" type="Area2D"]
+script = ExtResource("1_enas6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gy1w2")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+rotation = 4.71239

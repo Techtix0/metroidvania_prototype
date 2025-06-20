@@ -31,7 +31,10 @@ func toggle_menu():
 	if !menu_opened:
 		add_child(get_menu.instantiate())
 		menu_opened = true
+		get_tree().paused = true
 	else:
+		# Unpausing the game is done in the menu overlay script itself
+		# since the player entity is paused alongside the rest of the game
 		var menu_overlay = get_node("MenuOverlay")
 		if menu_overlay:
 			menu_overlay.queue_free()

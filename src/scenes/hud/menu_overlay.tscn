@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd85lpr3lhu33"]
+[gd_scene load_steps=3 format=3 uid="uid://cd85lpr3lhu33"]
 
+[ext_resource type="Script" uid="uid://cjk3yer27uwd5" path="res://src/scenes/hud/menu_overlay.gd" id="1_ark22"]
 [ext_resource type="Texture2D" uid="uid://sb6uuvow3a2q" path="res://assets/pause menu and weapon screen.png" id="1_d4pdh"]
 
 [node name="MenuOverlay" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ark22")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -1,13 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8h8rditm35eh"]
+[gd_scene load_steps=25 format=3 uid="uid://b8h8rditm35eh"]
 
 [ext_resource type="Texture2D" uid="uid://cyhx52li7ptrm" path="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="1_i7t1k"]
 [ext_resource type="Script" uid="uid://dtinn1uevwub3" path="res://src/scenes/enemies/enemy_01.gd" id="1_ncgkn"]
 [ext_resource type="PackedScene" uid="uid://bf0yad4bpvcdj" path="res://src/state_machine/state_machine.tscn" id="2_7nk7x"]
+[ext_resource type="Texture2D" uid="uid://x71koeiw4tpl" path="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png" id="2_bag4a"]
 [ext_resource type="Script" uid="uid://bdm8vo7806se3" path="res://src/scenes/enemies/move_component.gd" id="3_koobo"]
 [ext_resource type="Texture2D" uid="uid://c7iq4k4s8qyy7" path="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="3_onvas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_koobo"]
 radius = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxfyk"]
+atlas = ExtResource("2_bag4a")
+region = Rect2(560, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nk7x"]
 atlas = ExtResource("1_i7t1k")
@@ -71,6 +76,14 @@ region = Rect2(560, 0, 80, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_04t6o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxfyk")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7nk7x")
@@ -144,9 +157,9 @@ shape = SubResource("CircleShape2D_koobo")
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_04t6o")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.909581
+frame_progress = 0.0890582
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_7nk7x")]
 starting_state = NodePath("Move")

@@ -29,6 +29,16 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://src/": "red",
+"res://src/scenes/player/": "red",
+"res://src/state_machine/": "pink"
+}
+
 [input]
 
 move_left={

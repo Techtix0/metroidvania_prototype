@@ -5,7 +5,11 @@ extends CanvasLayer
 		#%WeaponType.text = "Sword"
 		
 func _ready() -> void:
-	PlayerManager.obtain_sword.connect(update_weapon_text)
+	if PlayerManager.inventory["Sword"]:
+		%WeaponType.text = "Sword" 
+	else:
+		PlayerManager.obtain_sword.connect(update_weapon_text)
+		
 
 func update_weapon_text() -> void:
-	%WeaponType.text = "Sword" 
+	%WeaponType.text = "Sword"

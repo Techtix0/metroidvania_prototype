@@ -1,10 +1,11 @@
-class_name Player
+class_name MushroomEnemy
 extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var state_machine: Node = $StateMachine
 @onready var move_component: Node = $MoveComponent
 
+@export var move_direction: float = 1.0
 @export var move_speed: float
 
 func _ready() -> void:

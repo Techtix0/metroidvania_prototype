@@ -1,0 +1,158 @@
+[gd_scene load_steps=23 format=3 uid="uid://b8h8rditm35eh"]
+
+[ext_resource type="Texture2D" uid="uid://cyhx52li7ptrm" path="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png" id="1_i7t1k"]
+[ext_resource type="Script" uid="uid://dtinn1uevwub3" path="res://src/scenes/enemies/enemy_01.gd" id="1_ncgkn"]
+[ext_resource type="PackedScene" uid="uid://bf0yad4bpvcdj" path="res://src/state_machine/state_machine.tscn" id="2_7nk7x"]
+[ext_resource type="Script" uid="uid://bdm8vo7806se3" path="res://src/scenes/enemies/move_component.gd" id="3_koobo"]
+[ext_resource type="Texture2D" uid="uid://c7iq4k4s8qyy7" path="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="3_onvas"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_koobo"]
+radius = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nk7x"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koobo"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncgkn"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onvas"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bag4a"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbbam"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktxkg"]
+atlas = ExtResource("1_i7t1k")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04t6o"]
+atlas = ExtResource("3_onvas")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnttl"]
+atlas = ExtResource("3_onvas")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0jat"]
+atlas = ExtResource("3_onvas")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyvr8"]
+atlas = ExtResource("3_onvas")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1txgq"]
+atlas = ExtResource("3_onvas")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbnc8"]
+atlas = ExtResource("3_onvas")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2kuk"]
+atlas = ExtResource("3_onvas")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbewi"]
+atlas = ExtResource("3_onvas")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04t6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nk7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koobo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncgkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onvas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bag4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbbam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktxkg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04t6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnttl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0jat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyvr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1txgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbnc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2kuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbewi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Enemy01" type="CharacterBody2D"]
+script = ExtResource("1_ncgkn")
+
+[node name="ObstacleDetector" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(0, 17)
+target_position = Vector2(27, 0)
+hit_from_inside = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_koobo")
+
+[node name="Animations" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_04t6o")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.909581
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_7nk7x")]
+starting_state = NodePath("Move")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("3_koobo")
+parent = NodePath("..")
+
+[editable path="StateMachine"]

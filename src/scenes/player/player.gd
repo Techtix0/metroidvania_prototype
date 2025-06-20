@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var state_machine: Node = $StateMachine
 @onready var move_component: Node = $MoveComponent
-@onready var get_menu := preload("res://src/scenes/hud/menu_overlay.tscn")
+@onready var get_menu := preload("res://src/scenes/hud/pause_menu/menu_overlay.tscn")
 
 @export var move_speed: float
 
@@ -13,6 +13,7 @@ var menu_opened: bool = false
 func _ready() -> void:
 	add_to_group("Player")
 	state_machine.init(self, animations, move_component, move_speed)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_menu"):

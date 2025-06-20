@@ -10,7 +10,7 @@ func enter() -> void:
 	parent.velocity.y = -jump_force
 	super()
 
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:

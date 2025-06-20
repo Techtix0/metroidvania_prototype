@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd85lpr3lhu33"]
 
-[ext_resource type="Script" uid="uid://cjk3yer27uwd5" path="res://src/scenes/hud/menu_overlay.gd" id="1_ark22"]
-[ext_resource type="Texture2D" uid="uid://sb6uuvow3a2q" path="res://assets/pause menu and weapon screen.png" id="1_d4pdh"]
+[ext_resource type="Script" uid="uid://cjk3yer27uwd5" path="res://src/scenes/hud/pause_menu/menu_overlay.gd" id="1_reapb"]
+[ext_resource type="Texture2D" uid="uid://sb6uuvow3a2q" path="res://assets/pause menu and weapon screen.png" id="2_5nd05"]
 
 [node name="MenuOverlay" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_ark22")
+script = ExtResource("1_reapb")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_d4pdh")
+texture = ExtResource("2_5nd05")
 
 [node name="SwordDisplay" type="TextureRect" parent="Control"]
 layout_mode = 0

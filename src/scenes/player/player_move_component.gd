@@ -12,4 +12,7 @@ func wants_jump() -> bool:
 	return Input.is_action_just_pressed("jump")
 
 func wants_attack() -> bool:
-	return Input.is_action_just_pressed("attack")
+	print(PlayerManager.inventory)
+	if PlayerManager.inventory["Sword"] == true:
+		return Input.is_action_just_pressed("attack")
+	return false

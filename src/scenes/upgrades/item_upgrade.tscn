@@ -6,6 +6,7 @@
 size = Vector2(32, 28)
 
 [node name="ItemUpgrade" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_enas6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

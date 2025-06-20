@@ -28,9 +28,11 @@ position = Vector2(0, 29)
 texture = SubResource("AtlasTexture_vebe3")
 
 [node name="WellCollider" type="CollisionPolygon2D" parent="."]
+z_index = 500
 polygon = PackedVector2Array(-32, 45, -32, 39, -22, 39, -22, 13, -16, 13, -16, 43, 27, 43, 27, 13, 33, 13, 33, 39, 43, 39, 43, 45)
 
 [node name="ExitArea" type="Area2D" parent="."]
+z_index = 500
 collision_layer = 4
 collision_mask = 2
 

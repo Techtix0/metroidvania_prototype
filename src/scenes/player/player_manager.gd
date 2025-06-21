@@ -19,5 +19,6 @@ func announce_sword_upgrade() -> void:
 	emit_signal("obtain_sword")
 
 func take_damage(amount: int) -> void:
-	current_health -= amount
-	emit_signal("took_damage")
+	if current_health > 0:
+		current_health -= amount
+		emit_signal("took_damage")

@@ -25,5 +25,6 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():
+		PlayerManager.coyote_timer = PlayerManager.coyote_time
 		return fall_state
 	return null

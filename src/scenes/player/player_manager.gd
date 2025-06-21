@@ -3,6 +3,9 @@ extends Node
 signal obtain_sword
 signal took_damage
 
+var coyote_time: float = 0.1
+var coyote_timer: float
+
 var inventory: Dictionary = {"Sword" : false}
 
 var player_position: Vector2
@@ -14,6 +17,12 @@ var current_health: int = max_health
 
 func _ready() -> void:
 	player_position = Vector2(32, 280)
+	coyote_timer = coyote_time
+
+func _physics_process(delta: float) -> void:
+	if coyote_timer > 0:
+		coyote_timer -= delta
+	
 
 func announce_sword_upgrade() -> void:
 	emit_signal("obtain_sword")

@@ -1,15 +1,16 @@
 extends CanvasLayer
-
-#func _physics_process(_delta: float) -> void:
-	#if PlayerManager.inventory["Sword"] == true:
-		#%WeaponType.text = "Sword"
 		
 func _ready() -> void:
 	if PlayerManager.inventory["Sword"]:
 		%WeaponType.text = "Sword" 
 	else:
 		PlayerManager.obtain_sword.connect(update_weapon_text)
-		
-
+	
+	%HealthAmount.text = str(PlayerManager.current_health)
+	PlayerManager.took_damage.connect(update_health)
+	
 func update_weapon_text() -> void:
 	%WeaponType.text = "Sword"
+
+func update_health() -> void:
+	%HealthAmount.text = str(PlayerManager.current_health)

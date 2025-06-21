@@ -19,3 +19,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		PlayerManager.take_damage(10)

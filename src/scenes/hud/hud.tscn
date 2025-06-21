@@ -18,6 +18,17 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="HealthContainer" type="HBoxContainer" parent="Control/UIElements"]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="Control/UIElements/HealthContainer"]
+layout_mode = 2
+text = "Health: "
+
+[node name="HealthAmount" type="Label" parent="Control/UIElements/HealthContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="WeaponType" type="Label" parent="Control/UIElements"]
 unique_name_in_owner = true
 layout_mode = 2

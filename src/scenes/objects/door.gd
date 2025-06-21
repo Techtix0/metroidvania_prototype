@@ -15,5 +15,5 @@ func _on_exit_area_body_entered(body: Node2D) -> void:
 		player.queue_free()
 		emit_signal("door_used")
 		
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	SceneManager.transition_to_scene(next_scene)

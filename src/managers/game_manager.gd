@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 # TODO: Call this function from the main menu
 func start_game() -> void:

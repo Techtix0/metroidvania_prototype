@@ -1348,6 +1348,7 @@ limit_top = -256
 limit_right = 801
 limit_bottom = 409
 position_smoothing_enabled = true
+editor_draw_screen = false
 editor_draw_limits = true
 
 [node name="Enemy01" parent="." instance=ExtResource("3_krl7c")]

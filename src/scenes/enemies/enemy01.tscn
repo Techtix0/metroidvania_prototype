@@ -146,6 +146,7 @@ animations = [{
 [node name="Enemy01" type="CharacterBody2D"]
 collision_layer = 8
 script = ExtResource("1_ncgkn")
+move_speed = 100.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 8

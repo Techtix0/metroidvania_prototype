@@ -1354,7 +1354,6 @@ editor_draw_limits = true
 [node name="Enemy01" parent="." instance=ExtResource("3_krl7c")]
 position = Vector2(568, 328)
 move_direction = -1.0
-move_speed = 100.0
 
 [node name="SwordUpgradeSpawn" type="Marker2D" parent="."]
 unique_name_in_owner = true

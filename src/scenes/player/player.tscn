@@ -209,6 +209,9 @@ frame_progress = 0.460309
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("attack_state")]
 attack_state = NodePath("../Attack")
 
+[node name="Fall" parent="StateMachine" index="3"]
+fall_multiplier = 2.0
+
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("11_je7p5")
 idle_state = NodePath("../Idle")

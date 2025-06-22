@@ -5,6 +5,7 @@ extends State
 @export var jump_state: State
 
 @export var jump_buffer: float
+@export var fall_multiplier: float = 0.0
 
 var jump_buffer_timer: float
 
@@ -24,7 +25,7 @@ func process_input(_event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	jump_buffer_timer -= delta
 	
-	parent.velocity.y += gravity * delta
+	parent.velocity.y += fall_multiplier * gravity * delta
 
 	var movement = move_component.get_movement_direction() * move_speed
 	

@@ -1342,6 +1342,14 @@ tile_set = SubResource("TileSet_2djvx")
 [node name="Player" parent="." instance=ExtResource("2_i2aat")]
 position = Vector2(32, 280)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = -256
+limit_right = 801
+limit_bottom = 409
+position_smoothing_enabled = true
+editor_draw_limits = true
+
 [node name="Enemy01" parent="." instance=ExtResource("3_krl7c")]
 position = Vector2(568, 328)
 move_direction = -1.0

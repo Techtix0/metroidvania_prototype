@@ -1,4 +1,4 @@
-extends Node
+extends MoveComponent
 
 @export var parent: CharacterBody2D
 @onready var obstacle_detector: RayCast2D = %ObstacleDetector

@@ -209,6 +209,9 @@ frame_progress = 0.460309
 [node name="Idle" parent="StateMachine" index="0" node_paths=PackedStringArray("attack_state")]
 attack_state = NodePath("../Attack")
 
+[node name="Jump" parent="StateMachine" index="2"]
+jump_force = 360.0
+
 [node name="Fall" parent="StateMachine" index="3"]
 fall_multiplier = 2.0
 

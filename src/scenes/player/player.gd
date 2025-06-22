@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var state_machine: Node = $StateMachine
-@onready var move_component: Node = $MoveComponent
+@onready var move_component: Node = %PlayerMoveComponent
 @onready var get_menu := preload("res://src/scenes/hud/pause_menu/menu_overlay.tscn")
 
 var menu_opened: bool = false

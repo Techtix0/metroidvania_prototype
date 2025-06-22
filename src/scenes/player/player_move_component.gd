@@ -1,4 +1,4 @@
-extends Node
+extends MoveComponent
 
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire

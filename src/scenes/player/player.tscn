@@ -213,7 +213,8 @@ attack_state = NodePath("../Attack")
 script = ExtResource("11_je7p5")
 idle_state = NodePath("../Idle")
 
-[node name="MoveComponent" type="Node" parent="."]
+[node name="PlayerMoveComponent" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("12_l84wi")
 
 [node name="HUD" parent="." instance=ExtResource("9_mc3vd")]

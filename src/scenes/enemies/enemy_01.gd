@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $Animations
 @onready var state_machine: Node = $StateMachine
-@onready var move_component: Node = $MoveComponent
+@onready var move_component: Node = %EnemyMoveComponent
 
 @export var move_direction: float = 1.0
 @export var move_speed: float

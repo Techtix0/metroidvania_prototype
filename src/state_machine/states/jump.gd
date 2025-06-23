@@ -14,9 +14,13 @@ func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	parent.velocity.y += gravity * delta
-	
 	if parent.velocity.y > 0:
+		return fall_state
+
+	if Input.is_action_pressed("jump"):
+		parent.velocity.y += gravity * delta
+	else:
+		parent.velocity.y = 0
 		return fall_state
 	
 	var movement = move_component.get_movement_direction() * move_speed

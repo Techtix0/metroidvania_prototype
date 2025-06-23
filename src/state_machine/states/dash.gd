@@ -12,11 +12,14 @@ func enter() -> void:
 	# Stopping animation since the frames will be manually set during the dash based on the dash_time
 	parent.animations.stop()
 
+	# Reset all velocities and start ready timer
 	parent.velocity = Vector2(0, 0)
 	dash_timer = move_component.dash_time
 
+	# Get total animation frames for current animation
 	total_frames = parent.animations.sprite_frames.get_frame_count(animation_name)
 
+	# Set movement 
 	movement = ceil(move_component.get_movement_direction()) * move_component.dash_speed 
 	if movement == 0:
 		if parent.animations.flip_h:
@@ -33,12 +36,15 @@ func process_physics(delta: float) -> State:
 	# Setting the frame of the animation based on the progress in the dash timer
 	parent.animations.frame = round(total_frames / (move_component.dash_time / dash_timer))
 
+	# perform dash
 	if dash_timer > 0:
 		dash_timer -= delta
 		parent.animations.flip_h = movement < 0
 		parent.velocity.x += movement 
 		parent.move_and_slide()
 	else:
+		# Start cooldown timer
+		move_component.dash_cooldown_timer = move_component.dash_cooldown
 		return fall_state
 
 	return null

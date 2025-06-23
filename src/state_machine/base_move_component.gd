@@ -11,6 +11,8 @@ var coyote_timer: float
 @export var terminal_velocity: float
 @export var dash_time: float
 @export var dash_speed: float
+@export var dash_cooldown: float
+var dash_cooldown_timer: float
 
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire

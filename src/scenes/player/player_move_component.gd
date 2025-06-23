@@ -10,7 +10,7 @@ func wants_keep_jumping() -> bool:
 	return Input.is_action_pressed("jump")
 
 func wants_dash() -> bool:
-	return Input.is_action_just_pressed("dash")
+	return Input.is_action_just_pressed("dash") && dash_cooldown_timer <= 0
 
 func wants_attack() -> bool:
 	if PlayerManager.inventory["Sword"] == true:

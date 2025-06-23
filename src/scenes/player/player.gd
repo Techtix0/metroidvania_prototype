@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	add_to_group("Player")
-	state_machine.init(self, animations, move_component, PlayerManager.move_speed)
+	state_machine.init(self, animations, move_component)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

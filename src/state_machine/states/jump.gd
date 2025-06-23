@@ -3,24 +3,21 @@ extends State
 @export var fall_state: State
 @export var move_state: State
 
-@export var jump_force: float = 300.0
-
 func enter() -> void:
 	animation_name = "jump"
-	parent.velocity.y = -jump_force
+	parent.velocity.y = -move_component.jump_force
 	super()
 
 func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	parent.velocity.y += gravity * delta
+
 	if parent.velocity.y > 0:
 		return fall_state
 
-	if Input.is_action_pressed("jump"):
-		parent.velocity.y += gravity * delta
-	else:
-		parent.velocity.y = 0
+	if move_component.has_variable_jump && !move_component.wants_jump():
 		return fall_state
 	
 	var movement = move_component.get_movement_direction() * move_speed

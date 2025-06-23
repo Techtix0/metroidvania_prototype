@@ -15,7 +15,7 @@ func process_input(_event: InputEvent) -> State:
 
 func process_physics(delta: float) -> State:
 	parent.velocity.y += gravity * delta
-	var movement = move_component.get_movement_direction() * move_speed
+	var movement = move_component.get_movement_direction() * move_component.move_speed
 	
 	if movement == 0:
 		return idle_state

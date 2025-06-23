@@ -4,12 +4,10 @@ extends State
 @export var move_state: State
 @export var jump_state: State
 
-@export var jump_buffer: float
-@export var fall_multiplier: float = 0.0
-
 var jump_buffer_timer: float
 
 func enter() -> void:
+	parent.velocity.y = 0
 	jump_buffer_timer = 0.0
 	animation_name = "fall"
 	super()
@@ -19,13 +17,13 @@ func process_input(_event: InputEvent) -> State:
 		if PlayerManager.coyote_timer > 0:
 			PlayerManager.coyote_timer = 0
 			return jump_state
-		jump_buffer_timer = jump_buffer
+		jump_buffer_timer = move_component.jump_buffer
 	return null
 
 func process_physics(delta: float) -> State:
 	jump_buffer_timer -= delta
 	
-	parent.velocity.y += fall_multiplier * gravity * delta
+	parent.velocity.y += move_component.fall_multiplier * gravity * delta
 
 	var movement = move_component.get_movement_direction() * move_speed
 	

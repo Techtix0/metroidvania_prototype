@@ -1,6 +1,12 @@
 class_name MoveComponent
 extends Node
 
+@export var jump_force: float 
+@export var has_variable_jump: bool
+@export var jump_buffer: float
+@export var fall_multiplier: float
+@export var move_speed: float
+
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire
 # to move to the right and negative values to the left.
@@ -17,7 +23,7 @@ func get_movement_direction():
 # This should return a bool but since GDscript doesn't 
 # doesn't support interfaces yet i can't put the return value
 # in this class
-func wants_jump():
+func wants_jump(): 
 	pass
 	
 # TODO: move to attack component

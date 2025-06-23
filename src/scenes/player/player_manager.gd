@@ -9,7 +9,6 @@ var coyote_timer: float
 var inventory: Dictionary = {"Sword" : false}
 
 var player_position: Vector2
-var move_speed: float = 180.0
 var came_through_door: bool = false
 
 var max_health: int = 100

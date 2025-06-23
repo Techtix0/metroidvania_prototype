@@ -12,7 +12,6 @@ func enter() -> void:
 	dash_timer = move_component.dash_time
 
 	movement = ceil(move_component.get_movement_direction()) * move_component.dash_speed 
-	print(move_component.get_movement_direction())
 	if movement == 0:
 		if parent.animations.flip_h:
 			movement = -1 * move_component.dash_speed

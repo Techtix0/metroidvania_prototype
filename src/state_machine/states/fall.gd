@@ -3,6 +3,7 @@ extends State
 @export var idle_state: State
 @export var move_state: State
 @export var jump_state: State
+@export var dash_state: State
 
 var jump_buffer_timer: float
 
@@ -21,6 +22,9 @@ func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	if move_component.wants_dash():
+		return dash_state
+
 	jump_buffer_timer -= delta
 	move_component.coyote_timer -= delta
 	

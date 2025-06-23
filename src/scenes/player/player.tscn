@@ -223,6 +223,8 @@ fall_multiplier = 2.0
 move_speed = 200.0
 coyote_time = 0.08
 terminal_velocity = 1000.0
+dash_time = 0.15
+dash_speed = 150.0
 
 [node name="HUD" parent="." instance=ExtResource("9_mc3vd")]
 unique_name_in_owner = true

@@ -9,6 +9,9 @@ func wants_jump() -> bool:
 func wants_keep_jumping() -> bool:
 	return Input.is_action_pressed("jump")
 
+func wants_dash() -> bool:
+	return Input.is_action_just_pressed("dash")
+
 func wants_attack() -> bool:
 	if PlayerManager.inventory["Sword"] == true:
 		return Input.is_action_just_pressed("attack")

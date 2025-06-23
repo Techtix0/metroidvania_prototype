@@ -9,6 +9,8 @@ extends Node
 @export var coyote_time: float
 var coyote_timer: float
 @export var terminal_velocity: float
+@export var dash_time: float
+@export var dash_speed: float
 
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire
@@ -30,6 +32,10 @@ func wants_jump():
 func wants_keep_jumping():
 	pass
 	
+# Returns a boolean indicating if the character wants to dash.
+func wants_dash():
+	pass
+
 # TODO: move to attack component
 # This should return a bool but since GDscript doesn't 
 # doesn't support interfaces yet i can't put the return value

@@ -3,6 +3,7 @@ extends State
 @export var idle_state: State
 @export var jump_state: State
 @export var fall_state: State
+@export var dash_state: State
 
 func enter() -> void:
 	animation_name = "run"
@@ -14,6 +15,9 @@ func process_input(_event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	if move_component.wants_dash():
+		return dash_state
+
 	parent.velocity.y += gravity * delta
 	var movement = move_component.get_movement_direction() * move_component.move_speed
 	

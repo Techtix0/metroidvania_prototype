@@ -14,3 +14,6 @@ func update_weapon_text() -> void:
 
 func update_health() -> void:
 	%HealthAmount.text = str(PlayerManager.current_health)
+
+func update_speed(speed: Vector2) -> void:
+	%Speed.text = str(speed)

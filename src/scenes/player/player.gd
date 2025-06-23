@@ -8,12 +8,14 @@ extends CharacterBody2D
 func _ready() -> void:
 	add_to_group("Player")
 	state_machine.init(self, animations, move_component)
+	PlayerManager.link_player(self)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	%HUD.update_speed(self.velocity)
 	
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)

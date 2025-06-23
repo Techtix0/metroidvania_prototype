@@ -3,6 +3,8 @@ extends Node
 signal obtain_sword
 signal took_damage
 
+var player: Player
+
 var inventory: Dictionary = {"Sword" : false}
 
 var player_position: Vector2
@@ -13,6 +15,9 @@ var current_health: int = max_health
 
 func _ready() -> void:
 	player_position = Vector2(32, 280)
+
+func link_player(player: Player) -> void:
+	self.player = player
 
 func announce_sword_upgrade() -> void:
 	emit_signal("obtain_sword")

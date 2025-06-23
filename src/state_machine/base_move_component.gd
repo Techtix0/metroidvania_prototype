@@ -8,6 +8,7 @@ extends Node
 @export var move_speed: float
 @export var coyote_time: float
 var coyote_timer: float
+@export var terminal_velocity: float
 
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire

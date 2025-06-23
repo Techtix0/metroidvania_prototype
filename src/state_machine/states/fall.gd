@@ -24,7 +24,8 @@ func process_physics(delta: float) -> State:
 	jump_buffer_timer -= delta
 	move_component.coyote_timer -= delta
 	
-	parent.velocity.y += move_component.fall_multiplier * gravity * delta
+	if parent.velocity.y <= move_component.terminal_velocity:
+		parent.velocity.y += move_component.fall_multiplier * gravity * delta
 
 	var movement = move_component.get_movement_direction() * move_component.move_speed
 	

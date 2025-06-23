@@ -17,10 +17,10 @@ func process_physics(delta: float) -> State:
 	if parent.velocity.y > 0:
 		return fall_state
 
-	if move_component.has_variable_jump && !move_component.wants_jump():
+	if move_component.has_variable_jump && !move_component.wants_keep_jumping():
 		return fall_state
 	
-	var movement = move_component.get_movement_direction() * move_speed
+	var movement = move_component.get_movement_direction() * move_component.move_speed
 
 	if movement != 0:
 		parent.animations.flip_h = movement < 0

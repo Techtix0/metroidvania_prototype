@@ -19,11 +19,12 @@ func get_movement_direction():
 	
 # Return a boolean indicating if the character wants to jump.
 # This function does not decide if the entity actually can jump.
-#
-# This should return a bool but since GDscript doesn't 
-# doesn't support interfaces yet i can't put the return value
-# in this class
 func wants_jump(): 
+	pass
+
+# Returns a boolean indicating if the character wants to keep jumping. 
+# Mostly designed for use with variable jump height.
+func wants_keep_jumping():
 	pass
 	
 # TODO: move to attack component

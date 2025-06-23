@@ -218,7 +218,7 @@ unique_name_in_owner = true
 script = ExtResource("12_l84wi")
 jump_force = 420.0
 has_variable_jump = true
-jump_buffer = 0.1
+jump_buffer = 0.05
 fall_multiplier = 2.0
 move_speed = 200.0
 

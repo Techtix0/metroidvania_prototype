@@ -6,6 +6,8 @@ extends Node
 @export var jump_buffer: float
 @export var fall_multiplier: float
 @export var move_speed: float
+@export var coyote_time: float
+var coyote_timer: float
 
 # Return the desired direction of movement for the character
 # in range [-1, 1], where positive values indicate a desire

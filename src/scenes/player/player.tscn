@@ -221,6 +221,7 @@ has_variable_jump = true
 jump_buffer = 0.05
 fall_multiplier = 2.0
 move_speed = 200.0
+coyote_time = 0.08
 
 [node name="HUD" parent="." instance=ExtResource("9_mc3vd")]
 

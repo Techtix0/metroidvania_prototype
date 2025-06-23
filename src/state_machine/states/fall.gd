@@ -14,14 +14,15 @@ func enter() -> void:
 	
 func process_input(_event: InputEvent) -> State:
 	if move_component.wants_jump():
-		if PlayerManager.coyote_timer > 0:
-			PlayerManager.coyote_timer = 0
+		if move_component.coyote_timer > 0:
+			move_component.coyote_timer = 0
 			return jump_state
 		jump_buffer_timer = move_component.jump_buffer
 	return null
 
 func process_physics(delta: float) -> State:
 	jump_buffer_timer -= delta
+	move_component.coyote_timer -= delta
 	
 	parent.velocity.y += move_component.fall_multiplier * gravity * delta
 

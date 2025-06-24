@@ -1,35 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf0yad4bpvcdj"]
+[gd_scene load_steps=7 format=3 uid="uid://bf0yad4bpvcdj"]
 
 [ext_resource type="Script" uid="uid://rai8723cs61m" path="res://src/state_machine/state_machine.gd" id="1_70dnm"]
 [ext_resource type="Script" uid="uid://g0f2iv8mau51" path="res://src/state_machine/states/idle.gd" id="2_1f1qt"]
 [ext_resource type="Script" uid="uid://dyg6jrljs3iwa" path="res://src/state_machine/states/move.gd" id="3_j8ar0"]
 [ext_resource type="Script" uid="uid://cv8pqgjpdwl6s" path="res://src/state_machine/states/jump.gd" id="4_rf8bc"]
 [ext_resource type="Script" uid="uid://bbjmwy2kbuk07" path="res://src/state_machine/states/fall.gd" id="5_mg1d5"]
+[ext_resource type="Script" uid="uid://bb205pwe2ibp3" path="res://src/state_machine/states/dash.gd" id="6_70dnm"]
 
 [node name="StateMachine" type="Node" node_paths=PackedStringArray("starting_state")]
 script = ExtResource("1_70dnm")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("move_state", "jump_state", "fall_state")]
+[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("move_state", "jump_state", "fall_state", "dash_state")]
 script = ExtResource("2_1f1qt")
 move_state = NodePath("../Move")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+dash_state = NodePath("../Dash")
 
-[node name="Move" type="Node" parent="." node_paths=PackedStringArray("idle_state", "jump_state", "fall_state")]
+[node name="Move" type="Node" parent="." node_paths=PackedStringArray("idle_state", "jump_state", "fall_state", "dash_state")]
 script = ExtResource("3_j8ar0")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 fall_state = NodePath("../Fall")
+dash_state = NodePath("../Dash")
 
-[node name="Jump" type="Node" parent="." node_paths=PackedStringArray("fall_state", "move_state")]
+[node name="Jump" type="Node" parent="." node_paths=PackedStringArray("fall_state", "move_state", "dash_state")]
 script = ExtResource("4_rf8bc")
 fall_state = NodePath("../Fall")
 move_state = NodePath("../Move")
+dash_state = NodePath("../Dash")
 
-[node name="Fall" type="Node" parent="." node_paths=PackedStringArray("idle_state", "move_state", "jump_state")]
+[node name="Fall" type="Node" parent="." node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "dash_state")]
 script = ExtResource("5_mg1d5")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
 jump_state = NodePath("../Jump")
-jump_buffer = 0.1
+dash_state = NodePath("../Dash")
+
+[node name="Dash" type="Node" parent="." node_paths=PackedStringArray("fall_state")]
+script = ExtResource("6_70dnm")
+fall_state = NodePath("../Fall")

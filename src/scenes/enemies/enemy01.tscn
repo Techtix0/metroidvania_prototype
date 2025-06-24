@@ -182,6 +182,7 @@ starting_state = NodePath("Move")
 unique_name_in_owner = true
 script = ExtResource("3_koobo")
 parent = NodePath("..")
+move_speed = 100.0
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 

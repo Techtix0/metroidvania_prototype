@@ -4,6 +4,7 @@ extends State
 @export var jump_state: State
 @export var fall_state: State
 @export var attack_state: State
+@export var dash_state: State
 
 func enter() -> void:
 	animation_name = "idle"
@@ -22,6 +23,9 @@ func process_input(_event: InputEvent) -> State:
 func process_frame(delta: float) -> State:
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
+
+	if move_component.wants_dash():
+		return dash_state
 	
 	if !parent.is_on_floor():
 		return fall_state

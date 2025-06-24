@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var move_speed: float
 
 func _ready() -> void:
-	state_machine.init(self, animations, move_component, move_speed)
+	state_machine.init(self, animations, move_component)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)

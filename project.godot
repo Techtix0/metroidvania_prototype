@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="metroidvania"
+config/name="metroidvania_prototype"
 run/main_scene="uid://dv6c6lf7thfnn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

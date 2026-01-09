@@ -2,8 +2,8 @@ extends State
 
 @export var idle_state: State
 @export var jump_state: State
-@export var fall_state: State
 @export var dash_state: State
+@export var fall_state: State
 
 func enter() -> void:
 	animation_name = "run"
